@@ -4413,14 +4413,17 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.LocalStorage.Cnds.OnAnyItemGet,
 		C3.Plugins.LocalStorage.Exps.ItemValue,
 		C3.Plugins.Arr.Acts.Clear,
+		C3.Plugins.Sprite.Cnds.IsAnimPlaying,
+		C3.Plugins.Text.Acts.SetY,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Arr.Cnds.CompareX,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.Text.Cnds.CompareText,
 		C3.Plugins.Sprite.Acts.SetVisible,
-		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.System.Acts.Scroll,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.System.Exps.scrollx,
@@ -4454,8 +4457,6 @@ self.C3_JsPropNameTable = [
 	{边界穿梭: 0},
 	{子弹: 0},
 	{"3D图形": 0},
-	{四: 0},
-	{底圖: 0},
 	{科技按鈕: 0},
 	{文字顯示: 0},
 	{火箭: 0},
@@ -4464,6 +4465,8 @@ self.C3_JsPropNameTable = [
 	{科技框: 0},
 	{人物狀態: 0},
 	{字卡: 0},
+	{桌上顯示: 0},
+	{文字顯示2: 0},
 	{登入階段: 0},
 	{帳號: 0},
 	{stage: 0},
@@ -4674,7 +4677,7 @@ self.C3_ExpressionFuncs = [
 		() => 0.1,
 		() => 4,
 		() => 7,
-		() => "請回到前面輸入「出發」",
+		() => "請點選畫面左上角的「←」\n回到前一個畫面輸入答案「出發」",
 		() => -84392668352511,
 		() => "動畫們",
 		() => "素描苗",
@@ -4688,7 +4691,7 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("stage");
 		},
-		() => "5",
+		() => "2",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
@@ -4703,9 +4706,20 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
-		() => "2",
 		() => "3",
 		() => "4",
+		() => "5",
+		() => "Dinu",
+		() => "Hoya",
+		() => "Lynn",
+		() => "Remi",
+		() => "Saugy",
+		() => "0",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ((((((("你是" + f0()) + "\n") + "你坐在哪呢?") + "\n") + "找到三個字後") + "\n") + "點擊左上角回去輸入");
+		},
+		() => 27,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
@@ -4736,6 +4750,7 @@ self.C3_ExpressionFuncs = [
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0(4, (f1(v2.GetValue()) + 2));
 		},
+		() => 8,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
